@@ -75,5 +75,6 @@ namespace SistemaGestion.DAL
                 return count == 1;
             }
         }
+
     }
 }

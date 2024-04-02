@@ -40,6 +40,7 @@
             label6 = new Label();
             textBox2 = new TextBox();
             label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -130,8 +131,9 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = SystemColors.HotTrack;
             label6.Font = new Font("Wide Latin", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(71, 20);
+            label6.Location = new Point(88, 20);
             label6.Name = "label6";
             label6.Size = new Size(285, 33);
             label6.TabIndex = 56;
@@ -154,14 +156,23 @@
             label4.TabIndex = 57;
             label4.Text = "ESTADO";
             // 
+            // label5
+            // 
+            label5.BackColor = SystemColors.HotTrack;
+            label5.Location = new Point(1, 1);
+            label5.Name = "label5";
+            label5.Size = new Size(488, 68);
+            label5.TabIndex = 59;
+            // 
             // PedidoInsertarVista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(487, 296);
+            Controls.Add(label6);
             Controls.Add(textBox2);
             Controls.Add(label4);
-            Controls.Add(label6);
             Controls.Add(dateTimePicker1);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -171,6 +182,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(label5);
             Name = "PedidoInsertarVista";
             Text = "PedidoInsertarVista";
             ResumeLayout(false);
@@ -191,5 +203,6 @@
         private Label label6;
         private TextBox textBox2;
         private Label label4;
+        private Label label5;
     }
 }

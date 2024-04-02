@@ -40,6 +40,7 @@
             dateTimePicker1 = new DateTimePicker();
             label4 = new Label();
             textBox2 = new TextBox();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label3
@@ -112,8 +113,9 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = SystemColors.HotTrack;
             label6.Font = new Font("Wide Latin", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(130, 9);
+            label6.Location = new Point(157, 9);
             label6.Name = "label6";
             label6.Size = new Size(176, 26);
             label6.TabIndex = 44;
@@ -154,10 +156,19 @@
             textBox2.Size = new Size(256, 23);
             textBox2.TabIndex = 58;
             // 
+            // label5
+            // 
+            label5.BackColor = SystemColors.HotTrack;
+            label5.Location = new Point(1, 1);
+            label5.Name = "label5";
+            label5.Size = new Size(512, 51);
+            label5.TabIndex = 60;
+            // 
             // PedidoEditarVista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(516, 240);
             Controls.Add(label4);
             Controls.Add(textBox2);
@@ -171,6 +182,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(label5);
             Name = "PedidoEditarVista";
             Text = "PedidoEditarVista";
             Load += PedidoEditarVista_Load;
@@ -192,5 +204,6 @@
         private DateTimePicker dateTimePicker1;
         private Label label4;
         private TextBox textBox2;
+        private Label label5;
     }
 }

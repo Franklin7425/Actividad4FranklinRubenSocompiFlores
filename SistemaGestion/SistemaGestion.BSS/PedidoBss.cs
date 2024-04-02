@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SistemaGestion.BSS
 {
      public class PedidoBss
-    {
+     {
         PedidoDal dal = new PedidoDal();
         public DataTable ListarPedidoBass()
         {
@@ -36,5 +36,6 @@ namespace SistemaGestion.BSS
         {
             dal.EliminarPedidoDal(id);
         }
+        
     }
 }

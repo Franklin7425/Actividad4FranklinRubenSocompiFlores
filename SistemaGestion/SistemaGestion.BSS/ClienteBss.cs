@@ -36,5 +36,6 @@ namespace SistemaGestion.BSS
         {
             dal.EliminarClienteDal(id);
         }
+       
     }
 }

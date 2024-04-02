@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,5 +63,6 @@ namespace SistemaGestion.DAL
             string consulta = "delete from cliente where idcliente =" + id;
             Conexion.Ejecutar(consulta);
         }
+        
     }
 }
