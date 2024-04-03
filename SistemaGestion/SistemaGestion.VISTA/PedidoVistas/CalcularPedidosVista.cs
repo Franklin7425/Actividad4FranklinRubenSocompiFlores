@@ -15,7 +15,7 @@ namespace SistemaGestion.VISTA.PedidoVistas
 {
     public partial class CalcularPedidosVista : Form
     {
-        
+
         public CalcularPedidosVista()
         {
             InitializeComponent();
@@ -29,42 +29,25 @@ namespace SistemaGestion.VISTA.PedidoVistas
             {
                 Cliente cliente = bsscliente.ObtenerClienteIdBss(IdClienteSeleccionado);
                 textBox1.Text = cliente.Nombre;
+                
+                
             }
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
         }
+        PedidoBss bss = new PedidoBss();
         private void button1_Click(object sender, EventArgs e)
         {
-            string nombreCliente = textBox1.Text.Trim();
-            DataTable clientes = bsscliente.ListarClientesBass().AsEnumerable()
-                                    .Where(row => row.Field<string>("nombre").Equals(nombreCliente, StringComparison.OrdinalIgnoreCase))
-                                    .CopyToDataTable();
-            if (clientes.Rows.Count == 0)
-            {
-                MessageBox.Show("No se encontró ningún cliente con ese nombre.");
-                return;
-            }
-            int idCliente = clientes.Rows[0].Field<int>("idcliente");
-            PedidoBss pedidoBss = new PedidoBss();
-            DataTable pedidosCliente = pedidoBss.ListarPedidoBass().AsEnumerable()
-                                        .Where(row => row.Field<int>("idcliente") == idCliente)
-                                        .CopyToDataTable();
-            decimal totalMontosPedidos = 0;
-            foreach (DataRow row in pedidosCliente.Rows)
-            {
-                totalMontosPedidos += row.Field<decimal>("total");
-            }
-            pedidosCliente.Columns.Add("TotalMontos", typeof(decimal));
-            foreach (DataRow row in pedidosCliente.Rows)
-            {
-                row["TotalMontos"] = totalMontosPedidos;
-            }
-            dataGridView1.DataSource = pedidosCliente;
+            dataGridView1.DataSource = bss.CalcularPedidosClienteBss(IdClienteSeleccionado);
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
-    
+
 }

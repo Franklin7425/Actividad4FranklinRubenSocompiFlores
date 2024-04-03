@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemaGestion.DAL
 {
@@ -60,6 +63,16 @@ namespace SistemaGestion.DAL
             Conexion.Ejecutar(consulta);
         }
 
-      
+        public DataTable CalcularTotalClienteDal(int id)
+        {
+            string consulta = "SELECT Cliente.Nombre, Cliente.Apellido, Count(Pedido.IDPedido) AS PEDIDOS, sum(Pedido.Total) AS CANTIDAD " +
+                                "FROM Cliente INNER JOIN " +
+                                                         "Pedido ON Cliente.IDCliente = Pedido.IDCliente " +
+                               "WHERE cliente.IDCLIENTE = " + id +
+                               "GROUP BY Cliente.Nombre, Cliente.Apellido "; 
+            DataTable lista = Conexion.EjecutarDataTabla(consulta, "tabla");
+            return lista;
+        }
+
     }
 }
